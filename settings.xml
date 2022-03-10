@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0" 
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+
+  <interactiveMode>false</interactiveMode>
+
+  <mirrors>
+    <mirror>
+      <id>fuse-repository</id>
+      <mirrorOf>*</mirrorOf>
+      <url>http://10.0.144.111:8081/repository/maven-public/</url>
+    </mirror>
+  </mirrors>
+
+  <profiles>
+    <profile>
+      <id>fuse-repository</id>
+      <!--Override the repository (and pluginRepository) "central" from the Maven Super POM
+          to activate snapshots for both! -->
+      <repositories>
+        <repository>
+          <id>central</id>
+          <url>http://central</url>
+          <releases>
+            <enabled>true</enabled>
+            <checksumPolicy>fail</checksumPolicy>
+          </releases>
+          <snapshots>
+            <enabled>true</enabled>
+            <checksumPolicy>fail</checksumPolicy>
+          </snapshots>
+        </repository>
+        <repository>
+          <id>spring-plugins</id>
+          <url>http://repo.spring.io/plugins-release/</url>
+        </repository>
+      </repositories>
+      <pluginRepositories>
+        <pluginRepository>
+          <id>central</id>
+          <url>http://central</url>
+          <releases>
+            <enabled>true</enabled>
+            <checksumPolicy>fail</checksumPolicy>
+          </releases>
+          <snapshots>
+            <enabled>true</enabled>
+            <checksumPolicy>fail</checksumPolicy>
+          </snapshots>
+        </pluginRepository>
+        <pluginRepository>
+          <id>spring-plugins</id>
+          <url>http://repo.spring.io/plugins-release/</url>
+        </pluginRepository>
+      </pluginRepositories>
+    </profile>
+    <profile>
+      <id>fuse-configuration</id>
+      <properties>
+        <maven.artifact.threads>8</maven.artifact.threads>
+      </properties>
+    </profile>
+  </profiles>
+
+  <activeProfiles>
+    <activeProfile>fuse-repository</activeProfile>
+    <activeProfile>fuse-configuration</activeProfile>
+  </activeProfiles>
+
+  <servers>
+    <server>
+      <id>nexus</id>
+      <username>perfectus-7.0.x</username>
+      <password>perfectussp33d0</password>
+    </server>
+    <server>
+      <id>fusesource-nexus-staging</id>
+      <username>perfectus-7.0.x</username>
+      <password>perfectussp33d0</password>
+      <configuration>
+        <httpConfiguration>
+          <put>
+            <connectionTimeout>300000</connectionTimeout> <!-- change to 5 minutes, default for maven 3.0.5 is 1 minute -->
+          </put>
+        </httpConfiguration>
+      </configuration>
+    </server>
+    <server>
+      <id>fusesource-nexus-snapshots</id>
+      <username>perfectus-7.0.x</username>
+      <password>perfectussp33d0</password>
+    </server>
+    <server>
+      <id>release.fusesource.org</id>
+      <username>perfectus-7.0.x</username>
+      <password>perfectussp33d0</password>
+    </server>
+    <server>
+      <id>snapshot.fusesource.org</id>
+      <username>perfectus-7.0.x</username>
+      <password>perfectussp33d0</password>
+    </server>
+    <server>
+      <id>website.fusesource.org</id>
+      <username>perfectus-7.0.x</username>
+      <password>perfectussp33d0</password>
+    </server>
+    <server>
+      <id>open.iona.m2-internal</id>
+      <username>perfectus-7.0.x</username>
+      <password>perfectussp33d0</password>
+    </server>
+    <server>
+      <id>fusesource.m2-internal</id>
+      <username>perfectus-7.0.x</username>
+      <password>perfectussp33d0</password>
+    </server>
+    <server>
+      <id>fusesource.m2-proxy</id>
+      <username>perfectus-7.0.x</username>
+      <password>perfectussp33d0</password>
+    </server>
+    <server>
+      <id>open.iona.m2-internal-snapshot</id>
+      <username>perfectus-7.0.x</username>
+      <password>perfectussp33d0</password>
+    </server>
+    <server>
+      <id>repo.fusesource.m2-restricted</id>
+      <username>perfectus-7.0.x</username>
+      <password>perfectussp33d0</password>
+    </server>
+    <server>
+      <id>fusesource-third-party-internal</id>
+      <username>perfectus-7.0.x</username>
+      <password>perfectussp33d0</password>
+    </server>
+    <server>
+      <id>fuse-all-legacy</id>
+      <username>perfectus-7.0.x</username>
+      <password>perfectussp33d0</password>
+    </server>
+    <server>
+      <id>release-proxy.fusesource.org</id>
+      <username>perfectus-7.0.x</username>
+      <password>perfectussp33d0</password>
+    </server>
+
+    <!-- Try to add a fake ossrh id -->
+    <server>
+      <id>ossrh</id>
+      <username>fakeid</username>
+      <password>fakepassword</password>
+    </server>
+    
+    <!-- new SAP P2 server -->
+    <server>
+      <id>fuse-qe.rhev-ci-vms.eng.rdu2.redhat.com</id>
+      <username>jenkins</username>
+      <password>jboss42</password>
+    </server>
+  </servers>
+
+</settings>
+

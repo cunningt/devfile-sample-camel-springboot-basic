@@ -34,8 +34,10 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <maven-compiler-plugin-version>3.8.1</maven-compiler-plugin-version>
-        <camel-version>3.14.1.redhat-00002</camel-version>
-        <camel-spring-boot-version>3.14.1.redhat-00002</camel-spring-boot-version>
+        <camel-version>3.14.1</camel-version>
+        <!--<camel-version>3.14.1.redhat-00002</camel-version>-->
+        <camel-spring-boot-version>3.14.1</camel-spring-boot-version>
+        <!--<camel-spring-boot-version>3.14.1.redhat-00002</camel-spring-boot-version>-->
         <spring-boot-version>2.6.3</spring-boot-version>
     </properties>
 
